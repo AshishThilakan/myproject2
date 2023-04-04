@@ -67,11 +67,15 @@ class _RegistrationState extends State<Registration> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                registerr();
-              },
-              child: const Text("Register"),
+            SizedBox(
+              width: 110,
+              child: ElevatedButton(
+                onPressed: () {
+                  registerr();
+                },
+                child:  Text("Register",style: TextStyle(fontSize: 18),),
+                style: ElevatedButton.styleFrom(shape: StadiumBorder()),
+              ),
             )
           ],
         ),

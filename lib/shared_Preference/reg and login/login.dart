@@ -92,8 +92,8 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.all(15.0),
               child: TextField(
                 controller: username_controller,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+                decoration:  InputDecoration(
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0)),
                   labelText: 'username',
                 ),
               ),
@@ -102,29 +102,34 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.all(15.0),
               child: TextField(
                 controller: password_controller,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+                decoration:  InputDecoration(
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0)),
                   labelText: 'Password',
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                String username = username_controller.text;
-                String password = password_controller.text;
+            SizedBox(
 
-                if (username != '' &&
-                    password != '' &&
-                    username == uname &&
-                    password == pswd) {
-                  print('Successfull');
-                  logindata.setBool('newuser', false);
+              width: 120,
+              child: ElevatedButton(
+                onPressed: () {
+                  String username = username_controller.text;
+                  String password = password_controller.text;
 
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Home()));
-                }
-              },
-              child: const Text("Log-In"),
+                  if (username != '' &&
+                      password != '' &&
+                      username == uname &&
+                      password == pswd) {
+                    print('Successfull');
+                    logindata.setBool('newuser', false);
+
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => Home()));
+                  }
+                },
+                child:  Text("Log-In",style: TextStyle(fontSize: 20),),
+                style: ElevatedButton.styleFrom(shape: StadiumBorder()),
+              ),
             ),
             TextButton(
                 onPressed: () {
